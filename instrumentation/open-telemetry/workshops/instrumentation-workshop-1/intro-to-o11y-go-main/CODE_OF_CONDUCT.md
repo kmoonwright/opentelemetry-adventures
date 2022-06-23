@@ -1,0 +1,1 @@
+Please see https://github.com/cncf/foundation/blob/master/code-of-conduct.md

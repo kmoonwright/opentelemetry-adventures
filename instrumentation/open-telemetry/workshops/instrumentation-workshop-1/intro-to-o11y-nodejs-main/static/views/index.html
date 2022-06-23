@@ -1,0 +1,48 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Sequence of Numbers</title>
+  <link id="favicon" rel="icon" href="/favicon.png" type="image/png">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="styles.css" rel="stylesheet" type="text/css" media="all">
+  <script src="/sequence.js" defer></script>
+
+</head>
+
+<body>
+  <header>
+    <h1>
+      A sequence of numbers:
+    </h1>
+  </header>
+
+  <main>
+    <button id="go-button">
+      Go
+    </button>
+    <div id="put-numbers-here" class="fibonacci-sequence">
+      &nbsp;
+    </div>
+    <button id="stop-button">
+      Stop
+    </button>
+
+    <div class="other-side">
+      <label class="switch">
+        <input type="checkbox" id="auto-checkbox">
+        <span class="slider"></span>
+      </label>
+      <br> Auto
+    </div>
+
+  </main>
+
+</body>
+
+</html>

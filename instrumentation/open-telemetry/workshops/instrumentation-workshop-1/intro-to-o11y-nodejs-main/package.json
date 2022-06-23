@@ -1,0 +1,35 @@
+{
+  "name": "fibonacci-microservice",
+  "version": "0.0.1",
+  "description": "A simple Node app built on Express using OpenTelemetry",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "metrics": ". ./.env && HNY_API_KEY=$HONEYCOMB_API_KEY HNY_DATASET=otel-nodejs-host-metrics ./otelcol_hny_linux_amd64 --config honeycomb-metrics-config.yaml"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.5.7",
+    "@opentelemetry/api": "^1.1.0",
+    "@opentelemetry/core": "^1.1.1",
+    "@opentelemetry/exporter-trace-otlp-grpc": "^0.27.0",
+    "@opentelemetry/instrumentation": "^0.27.0",
+    "@opentelemetry/instrumentation-express": "^0.28.0",
+    "@opentelemetry/instrumentation-http": "^0.27.0",
+    "@opentelemetry/resources": "^1.1.1",
+    "@opentelemetry/sdk-trace-base": "^1.1.1",
+    "@opentelemetry/sdk-trace-node": "^1.1.1",
+    "@opentelemetry/semantic-conventions": "^1.1.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.3"
+  },
+  "engines": {
+    "node": "14.x"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch",
+    "opentelemetry",
+    "express"
+  ]
+}
