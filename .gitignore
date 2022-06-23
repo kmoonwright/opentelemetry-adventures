@@ -1,3 +1,5 @@
 # Tests
 /examples/prefect-1.0/logging/test.py
+/examples/prefect-1.0/logging/run
 /examples/prefect-1.0/tracing/test.py
+/examples/prefect-1.0/tracing/run
