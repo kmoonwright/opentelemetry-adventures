@@ -1,0 +1,27 @@
+// COALESCE - provides a default value, COALESCE(arg1, arg2, ...)
+
+COALESCE($full_name, $email)
+COALESCE($error, $error_op, $http_error)
+COALESCE($container_id, $hostname, $availability_zone, "unknown")
+COALESCE($service.name, $service_name, "unknown")
+
+
+// This can be used to approximate a case statement. For some cases, this is easier to write than the multi-factor IF statement.
+COALESCE(
+    IF(GTE($duration_ms,200), "slow"),
+    IF(GTE($status,500), $error_message),
+    IF(CONTAINS($team, "acme"), "high priority"),
+    "normal"
+)
+
+
+// REGEX - REG_VALUE(string, regex)
+REG_VALUE($user_agent,`Chrome/[\d.]+`)
+REG_VALUE($source,`^(ui-\d+|log|app-\d+)`)
+
+
+// LENGTH - LENGTH(string[, "bytes" | "chars"])
+// returns the number of bytes that make up the string
+LENGTH($hostname,"bytes")
+// returns the number of user-perceived characters that make up the string
+LENGTH($hostname,"chars")

@@ -1,0 +1,22 @@
+// Service Level Indicators to create an SLO
+
+// Syntax
+IF(condition,then-val)
+IF(condition,then-val, else)
+IF(<should-I-measure?>, <success//fail?>)
+IF( condition_expression, return_val_if_true, return_val_if_false)
+
+
+// The multiple-value form can be used as a type of case statement.
+IF(condition, value,
+    IF(condition2,value2,
+        IF(condition3,value3,
+        default)
+    )
+)
+
+
+// The equivalent with multicondition IF
+IF(condition, value,
+    condition2, value2,
+    condition3, value3, default)

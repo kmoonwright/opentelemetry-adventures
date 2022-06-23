@@ -1,0 +1,26 @@
+// SLI Simple Errors
+IF( EXISTS($trace.parent_id), NOT($error) )
+
+IF(EXISTS($jsonPayload.status), LT($jsonPayload.status, 400))
+
+// ignores the 400 status codes
+IF(AND(
+    EXISTS($jsonPayload.status), 
+    OR(LT($jsonPayload.status, 400), GTE($jsonPayload.status, 500))
+), LT($jsonPayload.status, 400))
+
+
+// Another SLI Simple Error
+IF(AND(
+    NOT(EXISTS($trace.parent_id)), 
+    EXISTS($response.status_code)), 
+LT($response.status_code, 400))  // else, 400s show as errors and burn budget
+
+IF(AND(
+    EQUALS($service.name, "frontend"), NOT(EXISTS($trace.parent_id))), 
+    LT($duration_ms, 1700)
+)
+
+// LOG 10 of duration
+// useful to find commonalities due to smaller measurements units
+LOG10($duration_ms)

@@ -1,0 +1,29 @@
+
+// latency_sli
+LTE($duration_ms, 1000)
+
+// any_error_events
+NOT(EXISTS($error))
+
+// is_root
+IF(NOT( EXISTS($trace.parent_id) ),
+    true, false
+)
+
+// log10_duration
+LOG10($duration_ms)
+
+// bucket_by_day
+BUCKET(EVENT_TIMESTAMP(),86400)
+	
+// latency_to_home_page
+IF( EQUALS( $request.path, “/home”), LT( $http.response_duration, 100))
+	
+	
+
+// Entrypoint + not an error
+IF( EXISTS($trace.parent_id), NOT($error) )
+	
+// Entrypoint + Not one of the listed errors
+IF( AND(NOT(EXISTS($trace.parent_id)), NOT(IN($http.status_code, 404, 403)) ),  NOT($error) )
+	
