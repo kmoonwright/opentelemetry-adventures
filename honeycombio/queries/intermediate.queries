@@ -1,0 +1,34 @@
+// Heatmap of Status Codes [BubbleUp on this graph]
+VISUALIZE Heatmap(http.status_code)
+WHERE
+GROUP BY name
+
+
+// Error Entrypoints in the System
+VISUALIZE COUNT
+WHERE trace.parent_id, does-not-exist, error = true
+GROUP BY name
+
+
+// Comparing customers
+VISUALIZE Count, AVG(duration_ms), P90(duration_ms)
+WHERE customer.id exists
+GROUP BY customer.id
+    
+    
+// Comparing endpoints
+VISUALIZE Count, AVG(duration_ms), P90(duration_ms)
+WHERE trace.parent_id does-not-exist
+GROUP BY name
+
+
+// Latency of error requests grouped by error
+VISUALIZE HEATMAP(duration_ms), SUM(duration_ms)
+WHERE has_error=true
+GROUP BY error
+
+
+// Comparing latency and grouping by customer IDs
+VISUALIZE Count, AVG(duration_ms), P90(duration_ms)
+WHERE customer.id exists
+GROUP BY customer.id

@@ -1,0 +1,15 @@
+// Getting started
+HEATMAP(duration_ms)
+P90(duration_ms)
+HEATMAP(http.status_code)
+HEATMAP(error_code)
+
+
+// Latency, only root spans
+VISUALIZE HEATMAP(duration_ms)
+WHERE trace.parent_id does-not-exist, meta.annotation_type does-not-exist
+
+
+// Latency & Status Codes
+VISUALIZE HEATMAP(duration_ms), HEATMAP(response.status_code)
+WHERE trace.parent_id does-not-exist, meta.annotation_type does-not-exist
