@@ -4,4 +4,6 @@ metadata:
   name: petclinic
   annotations:
     instrumentation.opentelemetry.io/inject-java: "true"
+    # instrumentation.opentelemetry.io/inject-nodejs: "true"
+    # instrumentation.opentelemetry.io/inject-python: "true"
 
