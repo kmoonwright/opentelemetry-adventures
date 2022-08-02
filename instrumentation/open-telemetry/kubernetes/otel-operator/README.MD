@@ -7,7 +7,7 @@ This deploys a spring petclinic app that sends otel traces to an opentelemetry c
 First install cert manager on your cluster. 
 
 ```bash
-kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.8.2/cert-manager.yaml
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.9.1/cert-manager.yaml
 ```
 
 Next install the [Otel Operator](https://github.com/open-telemetry/opentelemetry-operator) on your cluster. 
