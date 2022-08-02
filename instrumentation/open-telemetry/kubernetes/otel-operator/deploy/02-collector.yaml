@@ -25,7 +25,7 @@ spec:
         endpoint: "api.honeycomb.io:443"
         headers:
           "x-honeycomb-team": "${HONEYCOMB_API_KEY}"
-          "x-honeycomb-dataset": "petclinic"
+          "x-honeycomb-dataset": "k8s-operator-petclinic"
     service:
       pipelines:
         traces:
